@@ -1,0 +1,29 @@
+{
+    "name": "aaronjan/telegrapher",
+    "description": "Handy message signer & authenticator.",
+    "keywords": [
+        "laravel",
+        "api",
+        "hmac"
+    ],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "AaronJan",
+            "email": "aaronjan@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "illuminate/contracts": "~5.3",
+        "illuminate/config": "~5.3",
+        "illuminate/support": "~5.3",
+        "illuminate/http": "~5.3",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Telegrapher\\": "src/Telegrapher/"
+        }
+    }
+}
