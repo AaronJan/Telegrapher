@@ -12,6 +12,8 @@ use Telegrapher\Processors\JSONStringifier;
 
 class Provider extends ServiceProvider
 {
+    const DEFAULT_CONFIG_PATH = __DIR__ . '/../../config/telegrapher.php';
+
     /**
      * Bootstrap any application services.
      *
@@ -20,7 +22,7 @@ class Provider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../config/telegrapher.php' => config_path('telegrapher.php'),
+            static::DEFAULT_CONFIG_PATH => config_path('telegrapher.php'),
         ]);
     }
 
@@ -31,7 +33,7 @@ class Provider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/telegrapher.php', 'telegrapher');
+        $this->mergeConfigFrom(static::DEFAULT_CONFIG_PATH, 'telegrapher');
 
         $this->registerAuthenticator();
 
@@ -57,7 +59,10 @@ class Provider extends ServiceProvider
         $customAuthenticator = config('telegrapher.authenticator');
         $authentication      = config('telegrapher.authentication');
 
-        $this->app->singleton(Authenticator::class, function (Application $application) use ($customAuthenticator, $authentication) {
+        $this->app->singleton(Authenticator::class, function (Application $application) use (
+            $customAuthenticator,
+            $authentication
+        ) {
             if ($customAuthenticator) {
                 return new $customAuthenticator($authentication);
             } else {
