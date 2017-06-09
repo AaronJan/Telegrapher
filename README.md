@@ -1,6 +1,6 @@
 # Telegrapher
 
-Handy message signer & authenticator.
+Handy message signer & authenticator for Laravel.
 
 
 ## Lisence
