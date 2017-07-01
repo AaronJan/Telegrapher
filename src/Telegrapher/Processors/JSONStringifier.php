@@ -12,7 +12,7 @@ class JSONStringifier implements Stringifier
      */
     public function stringify(array $values): string
     {
-        return \GuzzleHttp\json_encode($values, JSON_UNESCAPED_UNICODE);
+        return \GuzzleHttp\json_encode($values);
     }
 
     /**
