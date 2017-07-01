@@ -104,7 +104,7 @@ class Guard implements GuardContract
          */
         $user = $this->provider->retrieveById($credential['id']);
         if (! empty($user)) {
-            $this->telegrapher->verify($credential['payload'], $credential['token'], $credential['sign'], $user);
+            $this->telegrapher->validate($credential['payload'], $credential['token'], $credential['sign'], $user);
         }
 
         return $user;
