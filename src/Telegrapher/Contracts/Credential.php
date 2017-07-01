@@ -14,9 +14,4 @@ interface Credential
      */
     public function getHashKey();
 
-    /**
-     * @return string
-     */
-    public function getEncryptionKey();
-
 }

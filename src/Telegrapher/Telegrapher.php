@@ -113,7 +113,7 @@ class Telegrapher implements TelegrapherContract
     protected function assembleArrayToSign(string $payload, string $token, Credential $credential): array
     {
         $array = [
-            'id'      => $credential->getId(),
+            'id'      => (string) $credential->getId(),
             'payload' => $payload,
             'token'   => $token,
         ];
